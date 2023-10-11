@@ -38,6 +38,26 @@ for (var cColor = 0; cColor < colors.length; cColor++ ) {
 //console.log(deck);
 
 const players = rl.question("Cuantos jugadores seran?", [])
+const totalCards = players + 7;
+//repartir 7 cartas por jugador
+//recorro el total de tarjetas (Total de tarjetas = tarjetas/7 x jugador)
+//arreglo x jugador
+var cardsPlayers = {};
 
 
-console.log(players);
+for(var cTCards = 0; cTCards < totalCards; cTCards++) 
+    for(var cPlayers = 0; cPlayers < players; cPlayers++){
+    }
+        //console.log("players: ",cPlayers);
+    if(cardsPlayers["player_"+cPlayers]){
+        cardsPlayers["player_"+cPlayers] = [];
+    }
+    cardsPlayers["player_"+cPlayers].push(deck[cTCards]);{
+    console.log(cardsPlayers);
+    }
+    
+
+
+console.log(cardsPlayers);
+//investigar comparadores en nodejs para que sirve como funciona y un ejemplo
+//validaciones de variables
