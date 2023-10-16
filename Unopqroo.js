@@ -1,4 +1,5 @@
 const rl = require ("readline-sync");
+const { toValue } = require("vue");
 // juego uno 
 var deck = [];
 var colors = ["yellow","blue", "red", "green"];
@@ -50,14 +51,41 @@ for(var cTCards = 0; cTCards < 7; cTCards++){
         if(!cardsPlayers["player_"+cPlayers]){
             cardsPlayers["player_"+cPlayers] = [];
         }
+
     
-        cardsPlayers["player_"+cPlayers].push(deck[cTCards]);
+        cardsPlayers["player_"+cPlayers].push(deck.shift());
+    
         }
 }
 
-    
+var trash = [];
 
+trash.push(deck.shift());
 
-console.log(cardsPlayers);
-//investigar comparadores en nodejs para que sirve como funciona y un ejemplo
-//validaciones de variables
+console.log(trash);
+ 
+function cardValidation (card) {
+    //console.log(card.number);
+    if (card.number == trash) {
+        console.log("es igual");    
+    } else {
+        console.log("no es igual");
+    }
+    //console.log(card.color); 
+       // if (card.color == trash) {
+       //     console.log("es igual");
+       // } else {
+        //    console.log("no es igual");
+       // }
+}
+//trash.deck({color: colors[cColor], number: cNumber1, type: "comun"})
+cardValidation({color: trash,number: trash,type:trash});
+//paso 1 definir mi funcion
+//hacer que mi funcion resiva un parametro(la carta)
+//obtener la informacion de la carta(numero,color)
+//comparar que el color de mi carta obtenida coincidé con la primera carta de mi trash
+//si no validar que el color coincidé 
+// si el numero o el color coincide retornar la carta
+//si no retornar nulo
+
+//console.log(cardsPlayers);
