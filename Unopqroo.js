@@ -1,6 +1,7 @@
 const rl = require ("readline-sync");
 const { toValue } = require("vue");
 // juego uno 
+
 var deck = [];
 var colors = ["yellow","blue", "red", "green"];
 var types = ["comun", "especial", "comodin"];
@@ -66,7 +67,7 @@ console.log(trash);
  
 function cardValidation (card) {
     //console.log(card.number);
-    if (card.number == trash) {
+    if (card.number == trash[trash.length-1].number || card.color == trash[trash.length-1].color) {
         console.log("es igual");    
     } else {
         console.log("no es igual");
@@ -78,14 +79,57 @@ function cardValidation (card) {
         //    console.log("no es igual");
        // }
 }
-//trash.deck({color: colors[cColor], number: cNumber1, type: "comun"})
-cardValidation({color: trash,number: trash,type:trash});
-//paso 1 definir mi funcion
-//hacer que mi funcion resiva un parametro(la carta)
-//obtener la informacion de la carta(numero,color)
-//comparar que el color de mi carta obtenida coincidé con la primera carta de mi trash
-//si no validar que el color coincidé 
-// si el numero o el color coincide retornar la carta
-//si no retornar nulo
+cardValidation({color: trash,number: 5,type:trash});
 
-//console.log(cardsPlayers);
+
+
+    for(const player in cardsPlayers) {
+        //console.log(cardsPlayers[player])
+        //primer player ponga una carta
+        //paso 1: ver mis cartas 
+        //paso 2: Elegir carta 
+        //paso 3: validar carta
+        //paso 4: poner carta (de mano jugador al trash)
+
+        var Cplayer = [player];
+        var currentPlayer = 0;
+        var reverse = true; 
+        var nPlayer = cReverse();
+
+        function cReverse() {
+            const tPlayer = Cplayer.length;
+
+            var nPlayer;
+            if (reverse) {
+                nPlayer = Cplayer[(currentPlayer  + 1) % tPlayer];
+            } else {
+                nPlayer = Cplayer[(currentPlayer - 1 + tPlayer) % tPlayer];
+            }
+            return nPlayer;
+        }
+    }
+    console.log(cardsPlayers);
+    console.log("Jugador actual: ", currentPlayer);
+    
+    
+    
+    console.log("Siguiente jugador:", nPlayer);
+
+    
+
+    function playerValidation (cardsPlayers) {
+    //console.log(card.number);
+    if (cardsPlayers.number == trash[trash.length-1].number || cardsPlayers.color == trash[trash.length-1].color) {
+        console.log("es igual");    
+    } else {
+        console.log("no es igual");
+    }
+
+    
+    }
+
+    
+
+    
+      
+    
